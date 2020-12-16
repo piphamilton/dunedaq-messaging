@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+package histos;
+
+message histo_1D {
+  string          hist_title   = 1; //Title
+  string          yaxis_title  = 2; //Y axis
+  string          xaxis_title  = 3; //X axis
+  repeated string bins         = 4; //Bin labels
+  repeated float  bin_contents = 5; //Bin contents
+
+  google.protobuf.Timestamp last_updated = 6;
+}
+
+message histo_2D {
+  string          hist_title   = 1; //Title
+  string          yaxis_title  = 2; //Y axis
+  string          xaxis_title  = 3; //X axis
+  repeated string xbins        = 4; //X bin labels
+  repeated string ybins        = 5; //Y bin labels
+  repeated float  bin_contents = 6; //Bin contents
+
+  google.protobuf.Timestamp last_updated = 7;
+}
+
+ message hist_collection {
+   repeated histo_1D histos_1D = 1;
+   repeated histo_2D histos_2D = 2;
+ }
+
+// [END messages]
